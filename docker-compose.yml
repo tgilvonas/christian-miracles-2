@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - saints_network
+
+  db:
+    image: mariadb:latest
+    container_name: christian_saints_db_2
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: christian-saints
+      MYSQL_USER: raphael
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - saints_network
+
+  web:
+    image: nginx:alpine
+    container_name: christian_saints_web_2
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+    networks:
+      - saints_network
+
+volumes:
+  db_data:
+
+networks:
+  saints_network:
+    driver: bridge
