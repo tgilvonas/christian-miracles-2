@@ -1,3 +1,4 @@
+//import './bootstrap.js'; // for Sonata
 import { createApp } from 'vue'
 import App from './App.vue'
 
