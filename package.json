@@ -1,0 +1,21 @@
+{
+    "name": "christian-miracles-app",
+    "private": true,
+    "devDependencies": {
+        "@symfony/webpack-encore": "^4.7",
+        "@vue/compiler-sfc": "^3.4.0",
+        "core-js": "^3.0.0",
+        "postcss-loader": "^8.2.0",
+        "vue": "^3.4.0",
+        "vue-loader": "^17.0.1",
+        "webpack-notifier": "^1.15.0"
+    },
+    "scripts": {
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production"
+    },
+    "dependencies": {
+        "@symfony/ux-vue": "^2.18.0"
+    }
+}
