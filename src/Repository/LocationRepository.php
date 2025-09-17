@@ -30,14 +30,4 @@ class LocationRepository extends ServiceEntityRepository
     //            ->getResult()
     //        ;
     //    }
-
-    //    public function findOneBySomeField($value): ?Location
-    //    {
-    //        return $this->createQueryBuilder('l')
-    //            ->andWhere('l.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 }

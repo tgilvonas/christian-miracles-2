@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use App\Repository\LocationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableProperties;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableMethods;
 
 #[ORM\Entity(repositoryClass: LocationRepository::class)]
 class Location
 {
+    use TranslatableProperties, TranslatableMethods;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -15,9 +19,6 @@ class Location
 
     #[ORM\Column(length: 255)]
     protected ?string $name = null;
-
-    #[ORM\Column(length: 255)]
-    protected ?string $slug = null;
 
     public function getId(): ?int
     {
@@ -32,19 +33,6 @@ class Location
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): static
-    {
-        $this->slug = $slug;
-
         return $this;
     }
 }
