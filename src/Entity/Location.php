@@ -4,13 +4,12 @@ namespace App\Entity;
 
 use App\Repository\LocationRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model\Translatable\TranslatableProperties;
-use Knp\DoctrineBehaviors\Model\Translatable\TranslatableMethods;
+use Knp\DoctrineBehaviors\Model\Translatable\Translatable;
 
 #[ORM\Entity(repositoryClass: LocationRepository::class)]
 class Location
 {
-    use TranslatableProperties, TranslatableMethods;
+    use Translatable;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
